@@ -3,6 +3,7 @@ name: publish
 on:
   schedule:
     - cron: '0 7 * * *'
+  workflow_dispatch:
 
 jobs:
   terraform_version:
