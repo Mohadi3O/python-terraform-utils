@@ -55,9 +55,8 @@ if __name__ == '__main__':
     assert(os.path.basename(os.getcwd()) == 'terraform_version')
     assert(os.path.isdir('./terraform_version'))
     versions = get_terraform_versions()
-    versions = versions[0:6]  # TODO: delete this line
+    versions = versions[0:10]  # TODO: delete this line
     for version in versions:
         if version not in ['0.1.0', '0.1.1'] and not is_in_pypi(version):
-            print(f'Adding {version}')
             update_version(version)
             build_and_publish()
