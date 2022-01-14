@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "terraform_install"
+version = "0.1.5"
+description = "Installs Terraform to virtualenv bin"
+authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
+license = "MIT"
+keywords = ["terraform"]
+documentation = "https://github.com/joshwycuff/python-terraform-utils/packages/terraform_install"
+homepage = "https://github.com/joshwycuff/python-terraform-utils/packages/terraform_install"
+repository = "https://github.com/joshwycuff/python-terraform-utils"
+packages = [{ include = "terraform_install" }]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4.0"
+terraform_version = "*"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+terraform-install = "terraform_install.main:main"
+terraform = "terraform_install.terraform:terraform"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

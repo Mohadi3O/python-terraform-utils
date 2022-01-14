@@ -2,3 +2,7 @@ dist/
 .idea/
 .ignore/
 scratch/
+.DS_Store
+
+# python
+__pycache__/
