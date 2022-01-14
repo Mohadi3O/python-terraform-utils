@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "terraform_version"
+version = "0.1.0"
+description = "Package for tracking existing Terraform versions"
+authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
+maintainers = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
+license = "MIT"
+keywords = ["terraform"]
+documentation = "https://github.com/joshwycuff/python-terraform-utils/packages/terraform_version"
+homepage = "https://github.com/joshwycuff/python-terraform-utils/packages/terraform_version"
+repository = "https://github.com/joshwycuff/python-terraform-utils"
+packages = [{ include = "terraform_version" }]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
