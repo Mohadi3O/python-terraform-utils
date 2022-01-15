@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "terraform_install"
-version = "0.1.5"
-description = "Installs Terraform to virtualenv bin"
+version = "0.2.1"
+description = "Wrapper which installs Terraform"
 authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
 license = "MIT"
 keywords = ["terraform"]
@@ -17,7 +17,6 @@ terraform_version = "*"
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]
-terraform-install = "terraform_install.main:main"
 terraform = "terraform_install.terraform:terraform"
 
 [build-system]
