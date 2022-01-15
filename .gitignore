@@ -1,8 +1,11 @@
-dist/
-.idea/
 .ignore/
 scratch/
 .DS_Store
 
 # python
+dist/
 __pycache__/
+
+# idea
+.idea/
+*.iml
