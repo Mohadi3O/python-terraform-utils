@@ -1,1 +1,4 @@
-__version__ = '0.2.1'
+from pkg_resources import get_distribution
+
+
+__version__ = get_distribution('terraform_install').version

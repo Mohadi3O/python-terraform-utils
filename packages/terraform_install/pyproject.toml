@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "terraform_install"
-version = "0.2.1"
+version = "0.2.2"
 description = "Wrapper which installs Terraform"
 authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
 license = "MIT"
