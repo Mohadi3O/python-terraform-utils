@@ -1,0 +1,2 @@
+class TerraformException(Exception):
+    pass

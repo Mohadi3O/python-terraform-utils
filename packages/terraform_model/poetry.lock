@@ -1,0 +1,52 @@
+[[package]]
+name = "py-terraform"
+version = "0.1.0"
+description = "Python wrapper for Terraform"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4"
+develop = true
+
+[package.dependencies]
+terraform_install = {path = "../terraform_install", develop = true}
+
+[package.source]
+type = "directory"
+url = "../py_terraform"
+
+[[package]]
+name = "terraform-install"
+version = "0.2.2"
+description = "Wrapper which installs Terraform"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+develop = true
+
+[package.dependencies]
+terraform_version = "*"
+
+[package.source]
+type = "directory"
+url = "../terraform_install"
+
+[[package]]
+name = "terraform-version"
+version = "1.1.4"
+description = "Package for tracking existing Terraform versions"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[metadata]
+lock-version = "1.1"
+python-versions = ">=3.6,<4"
+content-hash = "bfd2e7cbaf514209a38f6250fceaa6e102c54b47aeab44f00d0e99922ffa5f8e"
+
+[metadata.files]
+py-terraform = []
+terraform-install = []
+terraform-version = [
+    {file = "terraform_version-1.1.4-py3-none-any.whl", hash = "sha256:8935ac0f996024b096680beb3a10aa1637a605b17813c9db41b851cc98464d48"},
+    {file = "terraform_version-1.1.4.tar.gz", hash = "sha256:bf0a1aa71a0399e9f09e0f3ba6dc2ca3bc937e4bb499ffcc3a7006f80a2f7127"},
+]

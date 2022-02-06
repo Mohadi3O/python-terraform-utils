@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "terraform_model"
+version = "0.1.0"
+description = "Terraform model"
+authors = ["Josh Wycuff <Joshua.Wycuff@turner.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4"
+py_terraform = {path = "../py_terraform", develop = true}
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+terraform-model = 'terraform_model.cli.main:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
