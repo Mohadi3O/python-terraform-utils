@@ -1,0 +1,57 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "locals": {
+    "y": 2
+  },
+  "output": {
+    "compare": {
+      "value": "${(var.x < local.y)}"
+    },
+    "list-index": {
+      "value": "${var.l[0]}"
+    },
+    "logical": {
+      "value": "${(var.x == local.y)}"
+    },
+    "map-get-item": {
+      "value": "${var.m[\"x\"]}"
+    },
+    "math": {
+      "value": "${(var.x + local.y)}"
+    },
+    "string-interpolation": {
+      "value": "Hello, ${var.world}"
+    },
+    "ternary": {
+      "value": "${(true ? true : false)}"
+    },
+    "unary": {
+      "value": "${(!var.b)}"
+    }
+  },
+  "terraform": {},
+  "variable": {
+    "b": {
+      "default": true
+    },
+    "l": {
+      "default": [
+        0,
+        1
+      ]
+    },
+    "m": {
+      "default": {
+        "x": 1
+      }
+    },
+    "world": {
+      "default": "world"
+    },
+    "x": {
+      "default": 1
+    }
+  }
+}

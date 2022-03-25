@@ -27,6 +27,14 @@ class TestCompile(unittest.TestCase):
     _resources_json = os.path.join(os.path.dirname(__file__), 'test_files/resources.json')
     _modules_py = os.path.join(os.path.dirname(__file__), 'test_files/modules.py')
     _modules_json = os.path.join(os.path.dirname(__file__), 'test_files/modules.json')
+    _module_decorator_py = os.path.join(os.path.dirname(__file__), 'test_files/module_decorator.py')
+    _module_decorator_a_json = os.path.join(os.path.dirname(__file__), 'test_files/module_decorator_a.json')
+    _module_decorator_b_json = os.path.join(os.path.dirname(__file__), 'test_files/module_decorator_b.json')
+    _module_function_decorator_py = os.path.join(os.path.dirname(__file__), 'test_files/module_function_decorator.py')
+    _module_function_decorator_a_json = os.path.join(os.path.dirname(__file__), 'test_files/module_function_decorator_a.json')
+    _module_function_decorator_b_json = os.path.join(os.path.dirname(__file__), 'test_files/module_function_decorator_b.json')
+    _expressions_py = os.path.join(os.path.dirname(__file__), 'test_files/expressions.py')
+    _expressions_json = os.path.join(os.path.dirname(__file__), 'test_files/expressions.json')
 
     @staticmethod
     def read(filepath) -> str:
@@ -80,3 +88,22 @@ class TestCompile(unittest.TestCase):
         import_module_from_filepath(self._modules_py)
         scope = Scope.get_scope()
         self.assertModelEqual(model(scope), self._modules_json)
+
+    def test_module_decorator(self):
+        import_module_from_filepath(self._module_decorator_py)
+        scope_a = Scope.get_scope()
+        self.assertModelEqual(model(scope_a), self._module_decorator_a_json)
+        scope_b = scope_a.children[0]
+        self.assertModelEqual(model(scope_b), self._module_decorator_b_json)
+
+    def test_module_function_decorator(self):
+        import_module_from_filepath(self._module_function_decorator_py)
+        scope_a = Scope.get_scope()
+        self.assertModelEqual(model(scope_a), self._module_function_decorator_a_json)
+        scope_b = scope_a.children[0]
+        self.assertModelEqual(model(scope_b), self._module_function_decorator_b_json)
+
+    def test_expressions(self):
+        import_module_from_filepath(self._expressions_py)
+        scope = Scope.get_scope()
+        self.assertModelEqual(model(scope), self._expressions_json)

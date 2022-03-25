@@ -1,0 +1,12 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "module": {
+    "asdf": {
+      "source": "./modules/a_module",
+      "x": 2
+    }
+  },
+  "terraform": {}
+}

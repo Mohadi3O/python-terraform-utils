@@ -1,0 +1,19 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "locals": {
+    "y": 2
+  },
+  "output": {
+    "z": {
+      "value": 3
+    }
+  },
+  "terraform": {},
+  "variable": {
+    "x": {
+      "default": 1
+    }
+  }
+}
