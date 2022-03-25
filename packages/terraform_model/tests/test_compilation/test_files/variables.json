@@ -1,0 +1,42 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "terraform": {},
+  "variable": {
+    "a_bool": {
+      "default": false,
+      "type": "bool"
+    },
+    "a_list": {
+      "default": [
+        1,
+        2,
+        3
+      ],
+      "type": "list(number)"
+    },
+    "a_map": {
+      "default": {
+        "x": 1,
+        "y": 2
+      },
+      "type": "map(number)"
+    },
+    "a_null": {
+      "default": null
+    },
+    "a_number": {
+      "default": 1,
+      "type": "number"
+    },
+    "a_string": {
+      "default": "abc",
+      "type": "string"
+    },
+    "with_description": {
+      "default": 2,
+      "description": "the number two"
+    }
+  }
+}

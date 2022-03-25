@@ -14,7 +14,8 @@ from terraform_model.helpers.scope import Scope
 def generate_markdown(scope: Scope, module=None, md: Opt[Markdown] = None) -> Markdown:
     md = md if md else Markdown('Terraform Model')
     if module is not None and hasattr(module, '__doc__'):
-        md.write_line(module.__doc__)
+        doc = 'No description.' if module.__doc__ is None else module.__doc__
+        md.write_line(doc)
     _variables(md, scope)
     _outputs(md, scope)
     _providers(md, scope)
@@ -36,7 +37,7 @@ def _outputs(md: Markdown, scope: Scope):
     blocks = scope.get_items(Output.type_name())
     if len(blocks) > 0:
         columns = ['name', 'type']
-        rows = [dict(name=b.name, type=b.data['value'].type()) for b in blocks]
+        rows = [dict(name=b.name, type=b.data['value'].tftype()) for b in blocks]
         section.table(dict(columns=columns, rows=rows))
     else:
         section.write_line(str(None))

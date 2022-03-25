@@ -1,0 +1,19 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "provider": {
+    "abc": [
+      {},
+      {
+        "alias": "an-alias"
+      }
+    ],
+    "def": [
+      {
+        "property": "value"
+      }
+    ]
+  },
+  "terraform": {}
+}

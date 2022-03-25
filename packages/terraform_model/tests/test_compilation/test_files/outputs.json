@@ -1,0 +1,14 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "output": {
+    "x": {
+      "value": 1
+    },
+    "y": {
+      "value": 2
+    }
+  },
+  "terraform": {}
+}

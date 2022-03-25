@@ -85,6 +85,18 @@ class Scope(Generic[T], AbstractContextManager):
     def register_child(self, child: Scope):
         self._children.append(child)
 
+    def clear_scope(self):
+        self._items: dict[str, dict[str, T]] = defaultdict(dict)
+        self._parent: Opt[Scope] = None
+        self._children: list[ModuleScope] = []
+
+    @classmethod
+    def clear_scopes(cls):
+        default_scope = cls._stack[0]
+        cls._scopes = {default_scope.name: default_scope}
+        cls._stack = cls._stack[:1]
+        default_scope.clear_scope()
+
     @classmethod
     def exists(cls, name: str) -> bool:
         return name in cls._scopes

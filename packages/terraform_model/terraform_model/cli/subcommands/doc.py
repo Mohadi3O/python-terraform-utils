@@ -2,7 +2,7 @@
 import os
 
 # internal
-from terraform_model.cli.subcommands.compile import import_module
+from terraform_model.compilation.compile import import_module_from_filepath
 from terraform_model.helpers.scope import Scope, DEFAULT_NAME
 from terraform_model.doc.generate import generate_markdown
 from terraform_model.cli.subcommands.terraform import default_terraform, validate
@@ -12,7 +12,7 @@ from terraform_model.utils.errors import TerraformModelException
 
 def doc_terraform_model(args):
     validate(args)
-    module = import_module(args.filepath)
+    module = import_module_from_filepath(args.filepath)
     scope = Scope.get_scope(DEFAULT_NAME)
     _doc_scope(args, module, scope)
 

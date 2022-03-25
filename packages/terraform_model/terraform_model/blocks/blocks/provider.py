@@ -3,17 +3,23 @@ from __future__ import annotations
 from typing import Optional as Opt
 
 # internal
-from terraform_model.helpers.types import TfJson, TfJsonObject
+from ...internal.tftype import TfJsonLike, TfJsonObject
 from terraform_model.helpers.scope import Scope
 from .block import Block
 
 
 class Provider(Block):
 
-    def __init__(self, sub_type: str, alias: Opt[str] = None, **kwargs: TfJson):
+    def __init__(self, sub_type: str, alias: Opt[str] = None, **kwargs: TfJsonLike):
         if alias:
             kwargs['alias'] = alias
-        super().__init__(sub_type, alias, **kwargs)
+        super().__init__(sub_type, None, **kwargs)
+
+    @property
+    def name(self):
+        if 'alias' in self.data:
+            return f'{self.sub_type}.{self.data["alias"]}'
+        return self.sub_type
 
     @classmethod
     def type(cls):

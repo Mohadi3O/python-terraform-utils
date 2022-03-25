@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 # internal
-from terraform_model.utils.deferred import deferred
+from terraform_model.internal.deferred import deferred
 
 
 class CompareMixin:

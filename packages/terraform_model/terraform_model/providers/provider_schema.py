@@ -11,13 +11,17 @@ class ProviderSchema(SchemaABC):
 
     def __init__(self, name: str, schema: JsonObject):
         super().__init__(name, schema)
-        self._load_resource_schemas()
-        self._load_data_source_schemas()
+        self.resources = self._load_resource_schemas()
+        self.data_sources = self._load_data_source_schemas()
 
     def _load_resource_schemas(self):
+        resources = []
         for name, schema in self.schema.get('resource_schemas', {}).items():
-            ResourceSchema(name, schema)
+            resources.append(ResourceSchema(name, schema))
+        return resources
 
     def _load_data_source_schemas(self):
+        data_sources = []
         for name, schema in self.schema.get('data_source_schemas', {}).items():
-            DataSourceSchema(name, schema)
+            data_sources.append(DataSourceSchema(name, schema))
+        return data_sources

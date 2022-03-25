@@ -1,9 +1,8 @@
 # std
-from functools import cache
-import importlib.util
 import os
 
 # internal
+from terraform_model.compilation.compile import import_module_from_filepath
 from terraform_model.utils.logger import log
 from terraform_model.model import compile_terraform
 from terraform_model.cli.subcommands.terraform import validate
@@ -15,18 +14,8 @@ def _validate(args):
         exit(1)
 
 
-@cache
-def import_module(filepath: str):
-    module_name = '__model__'
-    spec = importlib.util.spec_from_file_location(module_name, filepath)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
 def compile_terraform_model(args):
     log.info(f'Compiling terraform model from file {args.filepath}')
-    _validate(args)
-    _ = import_module(args.filepath)
+    _ = import_module_from_filepath(args.filepath)
     compile_terraform()
     validate(args)

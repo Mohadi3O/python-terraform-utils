@@ -5,8 +5,8 @@ from functools import partial
 from typing import Optional as Opt
 
 # internal
-from terraform_model.helpers.types import TfJson
-from terraform_model.types.typify import to
+from terraform_model.internal.tftype import TfJsonLike
+from terraform_model.types.conversions.typify import to
 from terraform_model.blocks.blocks.variable import Variable
 from terraform_model.blocks.blocks.output import Output
 from terraform_model.blocks.blocks.module import NestedModule
@@ -50,7 +50,7 @@ def module_function(func):
     PartialNestedModule = partial(NestedModule, nested_module_scope_dirpath)
     generate_name = _name_generator(nested_module_name)
 
-    def wrapper(name: Opt[str] = None, **kwargs: TfJson):
+    def wrapper(name: Opt[str] = None, **kwargs: TfJsonLike):
         if name is None:
             name = generate_name(kwargs)
         instance_output = getattr(PartialNestedModule(name, **kwargs), _output.name)

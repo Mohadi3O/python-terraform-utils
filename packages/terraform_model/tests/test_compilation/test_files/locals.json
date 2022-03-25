@@ -1,0 +1,10 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "locals": {
+    "x": 1,
+    "y": 2
+  },
+  "terraform": {}
+}

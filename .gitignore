@@ -9,3 +9,6 @@ __pycache__/
 # idea
 .idea/
 *.iml
+
+# terraform_model
+providers/

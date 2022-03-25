@@ -1,3 +1,4 @@
-from .collection import Collection
-from .list import List, ListLiteral
-from .map import Map, MapLiteral
+from .tfcollection import TfCollection
+from .tflist import tflist, TfList, TfListLiteral
+from .tfmap import tfmap, TfMap, TfMapLiteral
+from .tfset import tfset, TfSet, TfSetLiteral

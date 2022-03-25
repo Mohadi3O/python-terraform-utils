@@ -1,11 +1,8 @@
 # internal
-from terraform_model.utils.deferred import deferred
+from terraform_model.internal.deferred import deferred
 
 
 class GetAttrMixin:
 
     def __getattr__(self, attr):
-        if attr in dir(self):
-            return getattr(self, attr)
-        else:
-            return deferred.GetAttr(self, attr)
+        return deferred.typify(deferred.GetAttr(self, attr))

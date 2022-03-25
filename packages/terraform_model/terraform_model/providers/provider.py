@@ -1,12 +1,20 @@
+# std
+from __future__ import annotations
+
 # internal
 from ..utils.types import JsonObject
 from .provider_schema import ProviderSchema
 
 
 class Provider:
-    _providers = []
+    providers = {}
 
     def __init__(self, name: str, schema: JsonObject):
-        self._name = name
-        self._schema = ProviderSchema(name, schema)
-        self._providers.append(self)
+        print(name)
+        self.name = name
+        self.schema = ProviderSchema(name, schema)
+        self.providers[name] = self
+
+    @classmethod
+    def get_provider(cls, name: str) -> Provider:
+        return cls.providers[name]

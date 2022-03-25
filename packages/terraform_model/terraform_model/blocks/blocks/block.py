@@ -5,9 +5,16 @@ from typing import Optional as Opt, Type
 
 # internal
 from terraform_model.mixins import ExpressionMixin, GetAttrMixin
-from terraform_model.helpers.types import TfJsonObject
 from terraform_model.helpers.scope import Scope, DEFAULT_NAME
-from terraform_model.types.typify import typify
+from terraform_model.types.conversions.typify import typify
+from terraform_model.internal.tftype import is_type_or_generic, TfJsonObject
+
+
+def maybe_typify(something):
+    if is_type_or_generic(something):
+        return something
+    else:
+        return typify(something)
 
 
 class Block(ABC, ExpressionMixin, GetAttrMixin):
@@ -21,7 +28,7 @@ class Block(ABC, ExpressionMixin, GetAttrMixin):
     ):
         self._sub_type: Opt[str] = sub_type
         self._name: Opt[str] = name
-        self._data: dict = {k: typify(v) for k, v in data.items()}
+        self._data: dict = {k: maybe_typify(v) for k, v in data.items()}
         type_name = self.type_name()
         if type_name not in self._types:
             self._types[type_name] = self.type()

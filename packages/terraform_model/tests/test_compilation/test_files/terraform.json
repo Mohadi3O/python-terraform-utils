@@ -1,0 +1,21 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "terraform": {
+    "backend": {
+      "s3": {
+        "bucket": "bucket-name",
+        "key": "key",
+        "region": "us-east-1"
+      }
+    },
+    "required_providers": {
+      "provider-name": {
+        "source": "source-str",
+        "version": "version-str"
+      }
+    },
+    "required_version": "1.2.3"
+  }
+}

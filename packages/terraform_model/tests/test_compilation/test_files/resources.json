@@ -1,0 +1,18 @@
+{
+  "//": {
+    "terraform_model": "0.1.0"
+  },
+  "resource": {
+    "sub-type": {
+      "name-str": {
+        "property": "value"
+      }
+    },
+    "sub-type-2": {
+      "name-str-2": {
+        "abc": "def"
+      }
+    }
+  },
+  "terraform": {}
+}

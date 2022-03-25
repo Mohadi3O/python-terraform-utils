@@ -15,6 +15,9 @@ def root(args):
     elif args.subcommand in ['terraform', 'tf', 't']:
         from terraform_model.cli.subcommands.terraform import terraform
         terraform(args)
+    elif args.subcommand == 'providers':
+        from terraform_model.cli.subcommands.providers import get_providers
+        get_providers(args)
 
 
 # root
@@ -52,3 +55,6 @@ parser_doc.add_argument('--graph-output', default='graph.svg')
 # terraform
 parser_terraform = subparsers.add_parser('terraform', aliases=['tf', 't'])
 parser_terraform.add_argument('args', nargs='+')
+
+# providers
+parser_providers = subparsers.add_parser('providers')

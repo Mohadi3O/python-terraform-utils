@@ -1,9 +1,9 @@
 from terraform_model.mixins import *
-from terraform_model.types.typify import typify
-from terraform_model.types.atomics.string import StringLiteral
+from terraform_model.types.conversions.typify import typify
+from terraform_model.types.primitives.tfstring import TfStringLiteral
 
 
-class Expression(CompareMixin, ExpressionMixin, GetAttrMixin, GetItemMixin, MathMixin, ToMixin):
+class Expression(CompareMixin, ExpressionMixin, GetItemMixin, MathMixin, ToMixin):
 
     def __init__(self, *args):
         self._args = list(map(typify, args))
@@ -19,7 +19,8 @@ class Expression(CompareMixin, ExpressionMixin, GetAttrMixin, GetItemMixin, Math
 
     @staticmethod
     def str(arg) -> str:
-        if isinstance(arg, StringLiteral):
-            return f'"{arg}"'
-        else:
-            return str(arg)
+        return str(arg)
+        # if isinstance(arg, TfStringLiteral):
+        #     return f'"{arg}"'
+        # else:
+        #     return str(arg)
